@@ -7,22 +7,14 @@ public class Program  {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter a folder path: ");
+        System.out.println("Enter a file path: ");
         String strPath = sc.nextLine();
 
         File path = new File(strPath);
 
-        File[] folders = path.listFiles(File::isDirectory);
-
-        for(File folder : folders){
-            System.out.println(folder);
-        }
-
-        boolean success = new File(strPath+ "\\subdir").mkdir();
-        System.out.println("Directory created successfully: "+ success);
-
-
-
+        System.out.println("Get name: "+path.getName());
+        System.out.println("Get parent: "+path.getParent());
+        System.out.println("Get path: "+path.getPath());
         sc.close();
     }
 }
