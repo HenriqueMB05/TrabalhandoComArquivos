@@ -1,21 +1,21 @@
 package FileNScanner.Application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Program  {
     public static void main(String[] args){
-        String path = "c:\\temp\\in.txt";
+        String[] list = new String[]{"Good mornig", "Good Afternoon", "Good night"};
 
-        try(BufferedReader br = new BufferedReader(new FileReader(path))){
-            String line = br.readLine();
+        String path = "c:\\temp\\out.txt";
 
-            while(line!=null){
-                System.out.println(line);
-                line = br.readLine();
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(path))){
+            for (String line : list){
+                bw.write(line);
+                bw.newLine();
             }
-
         } catch (IOException err){
             System.out.println("Error: "+ err.getMessage());
         }
